@@ -59,7 +59,6 @@ app.get('/api/todos', function index(req, res) {
 });
 
 app.post('/api/todos', function create(req, res) {
-
   var newTask = req.body.task;
   var newDescription = req.body.description;
   var newId = todos.length+1;
@@ -97,14 +96,26 @@ app.get('/api/todos/:id', function show(req, res) {
 
 
 app.put('/api/todos/:id', function update(req, res) {
-  
+    var todoId = parseInt(req.params.id);
+    // var todoUpdate = todos.(function(){
+    //
+    // });
+    // res.status(200).json(todoUpdate);
+
   /* This endpoint will update a single todo with the
    * id specified in the route parameter (:id) and respond
    * with the newly updated todo.
    */
+
 });
 
 app.delete('/api/todos/:id', function destroy(req, res) {
+  var todoId = parseInt(req.params.id);
+  var todoDelete = todos.splice(function () {
+    return todo._id == todoId;
+
+  });
+  res.status(200).json(todoDelete);
   /* This endpoint will delete a single todo with the
    * id specified in the route parameter (:id) and respond
    * with success.
@@ -119,3 +130,33 @@ app.delete('/api/todos/:id', function destroy(req, res) {
 app.listen(3000, function() {
   console.log('Server running on http://localhost:3000');
 });
+
+
+
+// Todos API
+//   GET /api/todos (index)
+//     ✓ should respond with status 200 (74ms)
+//     ✓ should respond with a JSON object
+//     ✓ should respond with a JSON object containing a list of todos
+//     ✓ todo objects should have properities: _id, description, task
+//   GET /api/todos/:id (show)
+//     ✓ should respond with status 200 - Success
+//     ✓ should respond with JSON
+//     ✓ should fetch one specific todo by _id
+//   POST /api/todos (create)
+//     ✓ should respond with status 200 - Success
+//     ✓ should respond with JSON
+//     ✓ should respond with the new todo object
+//     ✓ should assign an _id to the new todo object
+//     ✓ should increment the _id number by one each time a todo is created
+//   DELETE /api/todos/:id (destroy)
+//     ✓ should respond with 200 or 204 on success
+//     1) should delete one specific todo from the list of todos
+//   PUT /api/todos/:id (update)
+//     2) "before all" hook
+//   GET /api/todos/search (search)
+//     3) "before all" hook
+//
+//
+// 13 passing (297ms)
+// 3 failing
